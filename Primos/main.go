@@ -38,5 +38,3 @@ func main() {
 		}
 	}
 }
-
-// se me ocurrio hacer un programa que genere numeros primos
