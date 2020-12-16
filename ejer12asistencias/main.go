@@ -7,10 +7,11 @@ import "fmt"
 
 func main() {
 	asistencias := map[string]int{
-		"Alumno1": 1,
-		"Alumno2": 0,
-		"Alumno3": 1,
-		"Alumno4": 1,
+		"Homero": 1,
+		"Bart":   0,
+		"Lisa":   1,
+		"Marge":  1,
+		"Maggie": 1,
 	}
 	for alumno, asistencia := range asistencias {
 		if asistencia == 1 {
@@ -23,19 +24,39 @@ func main() {
 	fmt.Println()
 
 	var alum string
-	fmt.Println("Ingrese el alumno")
-	fmt.Scanln(&alum)
 
-	for al, asis := range asistencias {
-		if alum == al && asis == 1 {
-			fmt.Printf("El alumno %s esta presente\n", alum)
-		} else if alum == al && asis == 0 {
-			fmt.Printf("El alumno %s esta ausente\n", alum)
-		} else {
-			fmt.Println("El alumno no existe")
-			break
+	// for alumno, asistencia := range asistencias {
+	// 	fmt.Println("Ingrese el alumno")
+	// 	fmt.Scanln(&alum)
+	// 	if alum == alumno && asistencia == 1 {
+	// 		fmt.Printf("El alumno %s esta presente\n", alum)
+
+	// 	} else if alum != alumno {
+	// 		fmt.Printf("El alumno %s no pertenece al curso\n", alum)
+
+	// 	} else if alum == alumno && asistencia == 0 {
+	// 		fmt.Printf("El alumno %s esta ausente\n", alum)
+
+	// 	}
+	// }
+
+	for ok := true; ok; ok = alum != "ok" { // ok para salir
+		fmt.Println("Ingrese el alumno")
+		fmt.Scanln(&alum)
+		for alumno, asistencia := range asistencias {
+			if alum == alumno && asistencia == 1 {
+				fmt.Printf("El alumno %s esta presente\n", alum)
+
+				// } else if alum != alumno {
+				// 	fmt.Printf("El alumno %s no pertenece al curso\n", alum)
+
+			} else if alum == alumno && asistencia == 0 {
+				fmt.Printf("El alumno %s esta ausente\n", alum)
+
+			}
 		}
 	}
+
 	// alumnos := []string{"uno", "dos", "tres", "cuatro", "cinco"}
 	// asistencia1 := []int{1, 0, 1, 1, 0}
 
@@ -48,10 +69,11 @@ func main() {
 	// }
 
 	todoElMes := map[string]int{
-		"Alumno 1": 20,
-		"Alumno 2": 16,
-		"Alumno 3": 21,
-		"Alumno 4": 19,
+		"Homero": 20,
+		"Bart":   16,
+		"Lisa":   21,
+		"Marge":  19,
+		"Maggie": 20,
 	}
 
 	masAsistencias := 0
