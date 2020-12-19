@@ -33,7 +33,7 @@ func Presencia() {
 				existe = true
 			}
 		}
-		if existe == false && alum != "OK" {
+		if !existe && alum != "OK" {
 			fmt.Printf("El alumno %s no pertenece al curso\n", alum)
 		}
 	}
