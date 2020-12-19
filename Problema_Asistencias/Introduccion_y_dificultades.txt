@@ -1,0 +1,15 @@
+-Problema: Almacenar la asistencia de cada alumno y poder ver quien estuvo presente en clase
+Interprete que a partir del listado de alumnos se quiere saber quienes estuvieron presentes en la clase
+
+Almacené los alumnos el archivo alumnos.go dentro de la carpeta alumnos utilizando un map donde 1 indica que está presente y 0 que está ausente
+
+Diseñé entonces un programa que permite ingresar por teclado el nombre del alumno/a y saber si esta presente, ausente o si no pertenece al curso, despues agregué tambien dos slices, uno para hacer una lista con los alumnos presentes y otro con los ausentes y mostrarlas. Finalmente muestra que alumn@ tuvo mas asistencias en el mes
+
+-Dificultades: 
+ Pase por varios inconvenientes antes de llegar a la solución final:
+
+1) Primero al recorrer el map de asistencias me obligaba a ingresar los alumnos en orden ya que el codigo for alumno, asistencia := range asistencias recorre desde el primer alumno hasta el ultimo en el orden que está creado. Lo solucioné poniendo el codigo dentro de otro for que funciona como un "do while" permitiendo ahora ingresar los alumnos en cualquier orden hasta ingresar "OK"
+
+2) Al ingresar un alumno que no perteneciera al map no me devolvia nada, cree un else if alum != alumno dentro del range de asistencias pero imprimia el mensaje por cada alumno del map distinto del ingresado, por lo tanto, lo solucioné creando una variable booleana "existe" y la inicialice en false al comienzo del primer for, de manera que se inicialice en cada iteración y le asigno true tanto si está presente como ausente ya que implica que el alumno pertenece al curso. Luego si "existe" es false al salir del range de asistencias imprime que el alumno ingresado no pertenece a la clase, en este momento me di cuenta que al ingresar "OK" para salir tambien me imprimia que OK no pertenece asi que agregué al if la condicion alum != "OK".
+
+3) Si ingresaba el nombre todo en minusculas o en mayusculas no lo reconocia, lo solucioné escribiendo todos los nombres en mayuscula en el map e importando el paquete "strings" para convertir a mayusculas la cadena ingresada en alum con alum = strings.ToUpper(alum).
