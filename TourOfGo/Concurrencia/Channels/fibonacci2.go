@@ -1,3 +1,4 @@
+//https://www.youtube.com/watch?v=LvgVSSpwND8
 package main
 
 import (
@@ -13,11 +14,14 @@ func main() {
 	go worker(jobs, results)
 	go worker(jobs, results)
 	go worker(jobs, results)
+	go worker(jobs, results)
+	go worker(jobs, results)
+	go worker(jobs, results)
 
 	for i := 0; i < 100; i++ {
 		jobs <- i
 	}
-	close(jobs)
+	close(jobs) //433494437   701408733  2971215073
 
 	for j := 0; j < 100; j++ {
 		fmt.Println(<-results)

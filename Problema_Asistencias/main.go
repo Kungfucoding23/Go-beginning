@@ -70,12 +70,12 @@ func Mas() {
 	alumnoMas := ""
 	for alumno, asist := range todoElMes {
 		if asist >= masAsistencias {
-			masAsistencias = asist
-			alumnoMas = alumno
+			masAsistencias = asist // si las asistencias son mayores a masAsistencias, se guarda en masAsistencias el nuevo valor mas grande
+			alumnoMas = alumno     // se guarda en alumnoMas el alumno con mas asistencias
 		}
 	}
 	fmt.Println()
-	fmt.Printf("El/la alumn@ con mas asistencias del mes es %s\n", alumnoMas)
+	fmt.Printf("El/la alumn@ con mas asistencias del mes es %s con %d asistencias\n", alumnoMas, masAsistencias)
 	fmt.Println("*******************************")
 }
 
