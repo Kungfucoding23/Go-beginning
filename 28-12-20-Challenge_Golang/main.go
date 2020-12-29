@@ -17,12 +17,9 @@ func main() {
 	controller.AddAlumno(alumno3)
 
 	fmt.Println(controller.Alumnos)
-	//controller.AddAlumno(alumno1)
 
-	controller.AddCurso("Curso de Go")
-	controller.AddCurso("Curso de Go")
-	controller.AddCurso("Pasear perros")
-
-	fmt.Println(controller.Cursos)
+	controller.DeleteAlumno(123456)
+	fmt.Println(controller.Alumnos)
+	controller.DeleteAlumno(123456)
 
 }

@@ -24,22 +24,27 @@ func NewAlumno(nombre string, apellido string, dni int32) Alumno {
 //AddAlumno agrega un alumno al slice
 func AddAlumno(a Alumno) {
 	if ExistAlumno(Alumnos, a) {
-		fmt.Printf("El alumno %t ya existe\n", a)
+		fmt.Println("El alumno que desea agregar ya existe")
 	} else {
 		Alumnos = append(Alumnos, a)
-		fmt.Println("Alumno agregado")
+		fmt.Println("Alumno agregado con exito")
 	}
 }
 
 //DeleteAlumno borra un alumno del slice
-func DeleteAlumno(a Alumno) {
-	if ExistAlumno(Alumnos, a) {
-		fmt.Println("Alumno borrado")
-		// aca tengo que borrar el alumno
-		Alumnos = append(Alumnos[:0], Alumnos[indexOf(a):])
-	} else {
-		fmt.Println("El alumno no existe")
+func DeleteAlumno(dni int32) {
+	existe := false
+	for i := 0; i < len(Alumnos); i++ {
+		if dni == Alumnos[i].Dni {
+			Alumnos = append(Alumnos[:i], Alumnos[i+1:]...)
+			fmt.Println("Alumno borrado")
+			existe = true
+		}
 	}
+	if !existe {
+		fmt.Println("El alumno que quiere borrar no existe")
+	}
+
 }
 
 //ExistAlumno es una funcion que evalua si el alumno ya pertenece al arreglo
