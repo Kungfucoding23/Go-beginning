@@ -23,7 +23,7 @@ func NewAlumno(nombre string, apellido string, dni int32) Alumno {
 
 //AddAlumno agrega un alumno al slice
 func AddAlumno(a Alumno) {
-	if ExistAlumno(Alumnos, a) {
+	if ExistAlumno(Alumnos, a.Dni) {
 		fmt.Println("El alumno que desea agregar ya existe")
 	} else {
 		Alumnos = append(Alumnos, a)
@@ -48,9 +48,9 @@ func DeleteAlumno(dni int32) {
 }
 
 //ExistAlumno es una funcion que evalua si el alumno ya pertenece al arreglo
-func ExistAlumno(Alumnos []Alumno, a Alumno) bool {
+func ExistAlumno(Alumnos []Alumno, dni int32) bool {
 	for _, alumn := range Alumnos {
-		if alumn == a {
+		if alumn.Dni == dni {
 			return true
 		}
 	}
