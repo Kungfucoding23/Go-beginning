@@ -2,6 +2,7 @@ package controller
 
 import (
 	"fmt"
+	"os"
 )
 
 //Alumno es una estructura que contiene nombre apellido y dni
@@ -96,4 +97,21 @@ func QuickSort(Arreglo []string, izq, der int) []string {
 		QuickSort(Arreglo, j+1, der)
 	}
 	return Arreglo
+}
+
+//CreoArchivo crea un archivo con los alumnos ordenados
+func CreoArchivo() {
+	data, err := os.Create("./alumnos")
+	if err != nil {
+		fmt.Println("Hubo un error")
+		return
+	}
+
+	for i, curso := range Cursos {
+		fmt.Fprintln(data, "Alumnos en el curso de", curso.Nombre, ":")
+		for j := range Cursos[i].Alumnos {
+			fmt.Fprintln(data, curso.Alumnos[j].Nombre, curso.Alumnos[j].Apellido, "DNI:", curso.Alumnos[j].Dni)
+		}
+		fmt.Fprintln(data, "")
+	}
 }

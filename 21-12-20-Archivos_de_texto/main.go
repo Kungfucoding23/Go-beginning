@@ -41,7 +41,7 @@ func leoArchivo2() {
 }
 
 func graboArchivo() {
-	datos, err := os.Create(arch)
+	datos, err := os.Create("./arch")
 	if err != nil {
 		fmt.Println("Hubo un error")
 		return
@@ -51,7 +51,7 @@ func graboArchivo() {
 }
 
 func graboArchivo2() {
-	fileName := arch
+	fileName := "./arch"
 	if Append(fileName, "\nEsta es la segunda linea") == false {
 		fmt.Println("Error al agregar la segunda linea")
 	}

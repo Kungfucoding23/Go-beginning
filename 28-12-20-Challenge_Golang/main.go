@@ -80,4 +80,6 @@ func main() {
 
 	fmt.Println("Arreglo ordenado: ", NombreCursosOrdenado)
 
+	controller.CreoArchivo()
+
 }
