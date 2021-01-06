@@ -1,6 +1,8 @@
 package controller
 
-import "fmt"
+import (
+	"fmt"
+)
 
 //Alumno es una estructura que contiene nombre apellido y dni
 type Alumno struct {
@@ -53,4 +55,45 @@ func ExistAlumno(Alumnos []Alumno, dni int32) bool {
 		}
 	}
 	return false
+}
+
+//NombreAlumnos arreglo con los nombres de alumnos
+var NombreAlumnos []string
+
+//AlumnosToString crea un arreglo con los nombres de los alumnos en string
+func AlumnosToString(Alumnos []Alumno) {
+	for _, alumn := range Alumnos {
+		NombreAlumnos = append(NombreAlumnos, alumn.Nombre)
+	}
+}
+
+//QuickSort ordena alfabeticamente el arreglo de alumnos
+func QuickSort(Arreglo []string, izq, der int) []string {
+	pivote := Arreglo[izq] // tomo el primer alumno como pivote
+	i := izq
+	j := der
+	var aux string
+
+	for i < j {
+		for Arreglo[i] <= pivote && i < j {
+			i++
+		}
+		for Arreglo[j] > pivote {
+			j--
+		}
+		if i < j {
+			aux = Arreglo[i]
+			Arreglo[i] = Arreglo[j]
+			Arreglo[j] = aux
+		}
+	}
+	Arreglo[izq] = Arreglo[j]
+	Arreglo[j] = pivote
+	if izq < j-1 {
+		QuickSort(Arreglo, izq, j-1)
+	}
+	if j+1 < der {
+		QuickSort(Arreglo, j+1, der)
+	}
+	return Arreglo
 }

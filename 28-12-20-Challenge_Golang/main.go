@@ -13,11 +13,11 @@ func main() {
 	alumno5 := controller.NewAlumno("Lisa", "Simpsom", 112342)
 
 	//Agrego los alumnos al slice
-	controller.AddAlumno(alumno1)
 	controller.AddAlumno(alumno2)
 	controller.AddAlumno(alumno3)
 	controller.AddAlumno(alumno4)
 	controller.AddAlumno(alumno5)
+	controller.AddAlumno(alumno1)
 	//Muestro el slice
 	fmt.Println(controller.Alumnos)
 
@@ -28,9 +28,9 @@ func main() {
 	controller.DeleteAlumno(123456)
 
 	//Agrego los cursos
-	controller.AgregarCurso("Golang")
-	controller.AgregarCurso("Node.js")
 	controller.AgregarCurso("React")
+	controller.AgregarCurso("Node.js")
+	controller.AgregarCurso("Golang")
 
 	//Los muestro iterando el slice para que salgan uno por linea en la consola
 	for i := 0; i < len(controller.Cursos); i++ {
@@ -66,5 +66,18 @@ func main() {
 	controller.EnQueCursoEsta(39850018)
 	controller.EnQueCursoEsta(123456)
 	controller.EnQueCursoEsta(234155)
+
+	controller.AlumnosToString(controller.Alumnos)
+
+	fmt.Println("Arreglo desordenado: ", controller.NombreAlumnos)
+	NombresOrdenados := controller.QuickSort(controller.NombreAlumnos, 0, len(controller.NombreAlumnos)-1)
+
+	fmt.Println("Arreglo ordenado: ", NombresOrdenados)
+
+	controller.CursosToString(controller.Cursos)
+	fmt.Println("Arreglo desordenado: ", controller.NombreCursos)
+	NombreCursosOrdenado := controller.QuickSort(controller.NombreCursos, 0, len(controller.NombreCursos)-1)
+
+	fmt.Println("Arreglo ordenado: ", NombreCursosOrdenado)
 
 }

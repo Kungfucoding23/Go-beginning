@@ -106,3 +106,13 @@ func EnQueCursoEsta(dni int32) {
 		fmt.Println("No se encontró el dni ingresado")
 	}
 }
+
+//NombreCursos arreglo con los nombres de los cursos
+var NombreCursos []string
+
+//CursosToString crea un arreglo con los nombres de los cursos en string
+func CursosToString(Cursos []Curso) {
+	for _, curso := range Cursos {
+		NombreCursos = append(NombreCursos, curso.Nombre)
+	}
+}
