@@ -43,7 +43,8 @@ func leoArchivo2() {
 func graboArchivo() {
 	datos, err := os.Create("./arch")
 	if err != nil {
-		fmt.Println("Hubo un error")
+		fmt.Println("Hubo un error al crear el archivo")
+		fmt.Println(err)
 		return
 	}
 	fmt.Fprintln(datos, "Esta es la linea nueva")
@@ -59,6 +60,9 @@ func graboArchivo2() {
 
 //Append es una funcion para agregar contenido al archivo
 func Append(archivo string, texto string) bool {
+	//O_WRONLY: permiso para lectura y escritura
+	//O_APPEND: abrir para poder escribir al final y agregarle registros
+	//0664: permisos para el usuario
 	arch, err := os.OpenFile(archivo, os.O_WRONLY|os.O_APPEND, 0664)
 	if err != nil {
 		fmt.Println("Hubo un error en el Openfile")

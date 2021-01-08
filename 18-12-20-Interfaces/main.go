@@ -27,14 +27,17 @@ type gato struct {
 }
 
 // Deben implementarse todos los metodos de la interfaz
-func (p *perro) respirar()       { p.respirando = true }
-func (p *perro) comer()          { p.comiendo = true }
-func (p *perro) especie() string { return "Perro" }
-// Puede implementarse un metodo de otra interfaz
-func (p *perro) estaVivo() bool  { return p.vivo }
+func (p *perro) respirar() { p.respirando = true }
 
-func (p *gato) respirar()       { p.respirando = true }
-func (p *gato) comer()          { p.comiendo = true }
+//func (p *perro) comer()          { p.comiendo = true }
+func (p *perro) especie() string { return "Perro" }
+
+// Puede implementarse un metodo de otra interfaz
+func (p *perro) estaVivo() bool { return p.vivo }
+
+func (p *gato) respirar() { p.respirando = true }
+
+//func (p *gato) comer()          { p.comiendo = true }
 func (p *gato) especie() string { return "Gato" }
 
 //AnimalRespirando es una funcion que toma como parametro anim del tipo animal
