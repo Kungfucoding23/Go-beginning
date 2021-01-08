@@ -40,7 +40,7 @@ func DeleteAlumno(dni int32) {
 		for i := 0; i < len(Alumnos); i++ {
 			if dni == Alumnos[i].Dni {
 				Alumnos = append(Alumnos[:i], Alumnos[i+1:]...)
-				fmt.Printf("%s fue eliminado con exito\n", Alumnos[i].Nombre)
+				fmt.Printf("%d fue eliminado con exito\n", dni)
 			}
 		}
 	} else {

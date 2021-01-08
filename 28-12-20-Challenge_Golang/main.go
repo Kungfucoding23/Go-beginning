@@ -13,6 +13,7 @@ func main() {
 	alumno5 := controller.NewAlumno("Lisa", "Simpsom", 112342)
 
 	//Agrego los alumnos al slice
+	controller.DeleteAlumno(123456)
 	controller.AddAlumno(alumno2)
 	controller.AddAlumno(alumno3)
 	controller.AddAlumno(alumno4)
@@ -22,10 +23,10 @@ func main() {
 	fmt.Println(controller.Alumnos)
 
 	//Borro el alumno2
-	controller.DeleteAlumno(123456)
 	fmt.Println(controller.Alumnos)
 	//Lo vuelvo a borrar para verificar la validación
 	controller.DeleteAlumno(123456)
+	controller.AddAlumno(alumno2)
 
 	//Agrego los cursos
 	controller.AgregarCurso("React")
@@ -39,7 +40,7 @@ func main() {
 	//Agrego 2 cursos que ya existen para comprobar la validación
 	controller.AgregarCurso("Golang")
 	controller.AgregarCurso("Node.js")
-
+	controller.DeleteAlumno(123456)
 	//Agrego alumnos a los cursos
 	controller.AgregarAlumnoACurso(alumno1, "Golang")
 	controller.AgregarAlumnoACurso(alumno1, "Golang")
