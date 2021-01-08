@@ -1,3 +1,6 @@
+/*
+	Un canal es un espacio de memoria de dialogo en el que van a dialogar distintas rutinas y cuando se aloje un valor en ese espacio de memoria, la rutina que esta pidiendo un valor a cambio va a actuar en consecuencia. Ese espacio de memoria tiene que ser de un tipo de dato, en definitica lo que va a transportar es un tipo de dato.
+*/
 package main
 
 import (
@@ -24,7 +27,8 @@ func bucle(miCanal chan time.Duration) {
 	for i := 0; i < 1000000000; i++ {
 	}
 	final := time.Now()
-	miCanal <- final.Sub(inicio) // devuelve la duración
+	//.Sub retorna la duracion
+	miCanal <- final.Sub(inicio)
 }
 
 func bucle2(miCanal chan time.Duration) {
